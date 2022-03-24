@@ -4,5 +4,6 @@ export interface DestinationModel {
   region: string;
   rating: string;
   price: number;
+  date: string;
   imageUrl: string;
 }

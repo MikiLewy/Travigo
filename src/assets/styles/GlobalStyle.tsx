@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 body{
     font-family:'Poppins', sans-serif;
-    font-size: 62.5%;
+    font-size: 10px;
 }
 button{
     font-family:'Poppins', sans-serif;

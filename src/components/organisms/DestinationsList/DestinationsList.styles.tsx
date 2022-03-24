@@ -17,7 +17,7 @@ export const ContentWrapper = styled.div`
 export const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
   @media ${queries.phone} {
     margin-bottom: 1.5rem;
   }
@@ -37,14 +37,8 @@ export const Destinations = styled.ul`
   gap: 20px;
 `;
 
-export const Title = styled.h4`
-  font-weight: bold;
-  font-size: ${({ theme }) => theme.fontSize.xxs};
-  @media ${queries.phone} {
-    font-size: ${({ theme }) => theme.fontSize.xs};
-  }
-`;
 export const Description = styled.p`
+  font-size: 12px;
   @media ${queries.phone} {
     font-size: 14px;
   }
@@ -60,15 +54,5 @@ export const FilterBtn = styled.button`
   border-radius: 12px;
   img {
     width: 13px;
-  }
-`;
-export const Button = styled.button`
-  padding: 0.5rem 0.75rem;
-  border-radius: 12px;
-  background-color: ${({ theme }) => theme.colors.navy};
-  border: none;
-  color: ${({ theme }) => theme.colors.white};
-  @media ${queries.phone} {
-    padding: 0.5rem 1.25rem;
   }
 `;
