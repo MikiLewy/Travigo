@@ -12,6 +12,6 @@ export const Button = styled.button<ButtonProps>`
   border: ${({ theme, isWhite }) => (isWhite ? `1px solid ${theme.colors.black}` : `1px solid ${theme.colors.navy}`)};
   color: ${({ theme, isWhite }) => (isWhite ? theme.colors.black : theme.colors.white)};
   @media ${queries.phone} {
-    padding: 5px 35px;
+    padding: 5px 25px;
   }
 `;
