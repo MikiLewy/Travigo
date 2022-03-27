@@ -5,6 +5,13 @@ export const Wrapper = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
+  @media ${queries.biggerTablet} {
+    grid-column: 2;
+  }
+  @media ${queries.desktop} {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
 `;
 
 export const ImageWrapper = styled.div`

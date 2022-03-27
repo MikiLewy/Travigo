@@ -13,7 +13,7 @@ export const DummyDestinationList: DestinationModel[] = [
   },
   {
     id: '2',
-    name: 'Sahale Glacier Camp',
+    name: 'Sahale Glacier',
     region: 'Washington',
     rating: '4,7',
     date: '23 December',

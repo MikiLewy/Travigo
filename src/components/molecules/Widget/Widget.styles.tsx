@@ -23,6 +23,18 @@ export const Wrapper = styled.div<isNotes>`
   @media ${queries.phone} {
     background-position: ${({ isNotes }) => (isNotes ? `center` : `left`)};
   }
+  @media ${queries.tablet} {
+    max-width: 650px;
+  }
+  @media ${queries.biggerTablet} {
+    grid-column: 2;
+  }
+  @media ${queries.desktop} {
+    margin-top: 0;
+    max-width: 550px;
+    grid-column: 3;
+    grid-row: ${({ isNotes }) => (isNotes ? '2/3' : '3/4')};
+  }
 `;
 
 export const Overlay = styled.div<isNotes>`
@@ -41,8 +53,11 @@ export const ContentWrapper = styled.div<isNotes>`
   position: relative;
   z-index: 2;
   display: flex;
-  /* justify-content: ${(isNotes) => (isNotes ? 'flex-start' : 'flex-end')}; */
+  height: 100%;
+  align-items: center;
   justify-content: flex-end;
+  @media ${queries.desktop} {
+  }
 `;
 
 export const TextWrapper = styled.div<isNotes>`
@@ -50,26 +65,39 @@ export const TextWrapper = styled.div<isNotes>`
   flex-direction: column;
   width: ${(isNotes) => (isNotes ? ' 50%' : ' 60%')};
   gap: 5px;
-  button {
-    margin-top: 10px;
-    width: 100px;
-  }
   p:nth-of-type(2) {
     font-size: 10px;
+    @media ${queries.laptop} {
+      font-size: 14px;
+    }
   }
 `;
 
 export const StyledButton = styled(Button)<isNotes>`
+  margin-top: 10px;
+  width: 100px;
   background-color: ${({ isNotes, theme }) => (isNotes ? 'rgb(250, 151, 3)' : theme.colors.navy)};
   border: ${({ isNotes, theme }) => (isNotes ? '1px solid rgb(250, 151, 3)' : `1px solid ${theme.colors.navy}`)};
+  @media ${queries.laptop} {
+    width: 120px;
+    font-size: 16px;
+    padding: 10px 30px;
+  }
 `;
 
 export const Title = styled.div`
   font-size: ${({ theme }) => theme.fontSize.xxs};
+  @media ${queries.laptop} {
+    font-size: ${({ theme }) => theme.fontSize.xs};
+  }
 `;
 
 export const Description = styled.p`
   font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
   max-width: 30ch;
+  @media ${queries.laptop} {
+    font-size: 16px;
+    max-width: 28ch;
+  }
 `;
