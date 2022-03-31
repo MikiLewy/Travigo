@@ -11,6 +11,7 @@ export const Button = styled.button<ButtonProps>`
   background-color: ${({ theme, isWhite }) => (isWhite ? theme.colors.white : theme.colors.navy)};
   border: ${({ theme, isWhite }) => (isWhite ? `1px solid ${theme.colors.black}` : `1px solid ${theme.colors.navy}`)};
   color: ${({ theme, isWhite }) => (isWhite ? theme.colors.black : theme.colors.white)};
+  cursor: pointer;
   @media ${queries.phone} {
     padding: 5px 25px;
   }

@@ -3,8 +3,8 @@ import { queries } from 'helpers/mediaQueries';
 
 export const Subtitle = styled.h4`
   font-weight: 500;
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  font-size: ${({ theme }) => theme.fontSize.s};
   @media ${queries.phone} {
-    font-size: ${({ theme }) => theme.fontSize.xs};
+    font-size: ${({ theme }) => theme.fontSize.md};
   }
 `;

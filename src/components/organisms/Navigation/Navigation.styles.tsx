@@ -23,7 +23,7 @@ export const Wrapper = styled.nav<isOpen>`
     grid-column: 1;
     width: 250px;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
+    overflow-y: hidden;
   }
 `;
 
@@ -38,7 +38,7 @@ export const BackWrapper = styled.button`
   background-color: transparent;
   cursor: pointer;
   p {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.s};
   }
   svg {
     transform: scale(0.85);
@@ -56,7 +56,7 @@ export const StyledList = styled.ul`
   margin: 2rem 0 5rem;
 
   img {
-    margin: 0 auto;
+    margin: 10px auto 0;
     width: 50%;
     @media ${queries.phone} {
       width: 35%;
@@ -77,10 +77,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
   p {
-    font-size: ${({ theme }) => theme.fontSize.xxs};
-    @media ${queries.biggerTablet} {
-      font-size: 16px;
-    }
+    font-size: ${({ theme }) => theme.fontSize.s};
   }
   svg {
     transform: scale(1.25);
@@ -113,11 +110,8 @@ export const StyledLogout = styled(Link)`
   color: ${({ theme }) => theme.colors.black};
 
   p {
-    font-size: ${({ theme }) => theme.fontSize.xxs};
+    font-size: ${({ theme }) => theme.fontSize.s};
     color: red;
-    @media ${queries.biggerTablet} {
-      font-size: 16px;
-    }
   }
   svg {
     transform: scale(1.25);

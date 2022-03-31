@@ -28,12 +28,16 @@ export const Wrapper = styled.div<isNotes>`
   }
   @media ${queries.biggerTablet} {
     grid-column: 2;
+    height: 100%;
   }
   @media ${queries.desktop} {
     margin-top: 0;
     max-width: 550px;
     grid-column: 3;
-    grid-row: ${({ isNotes }) => (isNotes ? '2/3' : '3/4')};
+    grid-row: ${({ isNotes }) => (isNotes ? '3/4' : '2/3')};
+  }
+  @media (min-width: 1600px) {
+    width: 500px;
   }
 `;
 
@@ -68,7 +72,7 @@ export const TextWrapper = styled.div<isNotes>`
   p:nth-of-type(2) {
     font-size: 10px;
     @media ${queries.laptop} {
-      font-size: 14px;
+      font-size: ${({ theme }) => theme.fontSize.xxs};
     }
   }
 `;
@@ -80,24 +84,24 @@ export const StyledButton = styled(Button)<isNotes>`
   border: ${({ isNotes, theme }) => (isNotes ? '1px solid rgb(250, 151, 3)' : `1px solid ${theme.colors.navy}`)};
   @media ${queries.laptop} {
     width: 120px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xxs};
     padding: 10px 30px;
   }
 `;
 
 export const Title = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  font-size: ${({ theme }) => theme.fontSize.s};
   @media ${queries.laptop} {
-    font-size: ${({ theme }) => theme.fontSize.xs};
+    font-size: ${({ theme }) => theme.fontSize.sd};
   }
 `;
 
 export const Description = styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.fontSize.xxs};
   color: rgba(255, 255, 255, 0.8);
   max-width: 30ch;
   @media ${queries.laptop} {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xs};
     max-width: 28ch;
   }
 `;

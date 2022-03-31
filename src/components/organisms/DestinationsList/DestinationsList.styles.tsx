@@ -23,8 +23,8 @@ export const Destinations = styled.ul`
 `;
 
 export const Description = styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.fontSize.xxs};
   @media ${queries.phone} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSize.xs};
   }
 `;

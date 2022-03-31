@@ -37,9 +37,9 @@ export const ContentWrapper = styled.div`
 `;
 export const PlaceName = styled.p`
   font-weight: 600;
-  font-size: 15px;
+  font-size: 1.5rem;
   @media ${queries.phone} {
-    font-size: ${({ theme }) => theme.fontSize.xxs};
+    font-size: ${({ theme }) => theme.fontSize.s};
   }
 `;
 export const DetailsWrapper = styled.div`
@@ -63,9 +63,9 @@ export const InfoWrapper = styled.div`
     }
   }
   p {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.fontSize.xxs};
     @media ${queries.phone} {
-      font-size: 14px;
+      font-size: ${({ theme }) => theme.fontSize.xs};
     }
   }
 `;
@@ -77,15 +77,15 @@ export const PriceWrapper = styled.div`
 
 export const Price = styled.p`
   font-weight: 600;
-  font-size: 15px;
+  font-size: ${({ theme }) => theme.fontSize.xs};
   @media ${queries.phone} {
-    font-size: ${({ theme }) => theme.fontSize.xs};
+    font-size: ${({ theme }) => theme.fontSize.s};
   }
 `;
 
 export const Day = styled.p`
   font-size: 10px;
   @media ${queries.phone} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSize.xs};
   }
 `;

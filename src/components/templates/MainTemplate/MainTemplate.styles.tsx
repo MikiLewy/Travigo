@@ -6,6 +6,9 @@ export const Wrapper = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
+  @media ${queries.phone} {
+    align-items: center;
+  }
 
   @media ${queries.tablet} {
     width: 70%;
@@ -22,7 +25,12 @@ export const Wrapper = styled.div`
   @media ${queries.desktop} {
     padding: 0 0.5rem;
     gap: 1rem 1rem;
-    grid-template-columns: 250px 550px 550px 1fr;
+    grid-template-columns: 250px 550px 550px 200px;
     grid-template-rows: 200px 275px 275px 1fr;
+  }
+  @media (min-width: 1600px) {
+    gap: 1rem 2.5rem;
+    grid-template-columns: 250px 500px 500px 1fr;
+    grid-template-rows: 200px 250px 250px 1fr;
   }
 `;

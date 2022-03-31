@@ -3,13 +3,19 @@ import { queries } from 'helpers/mediaQueries';
 import { ViewWrapper } from 'components/templates/ViewWrapper/ViewWrapper';
 
 export const StyledViewWrapper = styled(ViewWrapper)`
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
+  @media ${queries.phone} {
+    width: 100%;
+  }
   @media ${queries.biggerTablet} {
     margin-bottom: 0;
   }
   @media ${queries.desktop} {
     grid-column: 3;
     grid-row: 4;
+  }
+  @media (min-width: 1600px) {
+    width: 500px;
   }
 `;
 export const Wrapper = styled.div`
@@ -25,9 +31,9 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Description = styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.fontSize.xxs};
   @media ${queries.phone} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSize.xs};
   }
 `;
 

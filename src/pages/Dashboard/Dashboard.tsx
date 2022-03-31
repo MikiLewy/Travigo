@@ -7,6 +7,8 @@ import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import BottomMenu from 'components/molecules/BottomMenu/BottomMenu';
 import Expenses from 'components/molecules/Expenses/Expenses';
 import { expensesData } from 'data/Expenses';
+import Headline from 'components/molecules/Headline/Headline';
+import Calendar from 'components/molecules/Calendar/Calendar';
 
 const Dashboard = () => {
   const [data, setData] = useState({
@@ -22,7 +24,7 @@ const Dashboard = () => {
   });
   return (
     <MainTemplate>
-      <UserInfo />
+      <Headline />
       <DestinationsList />
       <Widget isNotes={false} />
       <Widget isNotes />

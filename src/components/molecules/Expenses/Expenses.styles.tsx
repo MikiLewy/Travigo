@@ -6,8 +6,12 @@ export const StyledViewWrapper = styled(ViewWrapper)`
   display: none;
   @media ${queries.desktop} {
     display: block;
+    height: 100%;
     grid-column: 2;
     grid-row: 4;
+  }
+  @media (min-width: 1600px) {
+    width: 500px;
   }
 `;
 export const Wrapper = styled.div`
@@ -18,17 +22,16 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   gap: 2rem;
-  height: 100%;
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   div {
     p {
-      font-size: 14px;
+      font-size: ${({ theme }) => theme.fontSize.xs};
     }
   }
 `;

@@ -15,6 +15,7 @@ export const theme: DefaultTheme = {
   colors: {
     white: '#fff',
     black: '#000',
+    dimmedBlack: 'rgba(0, 0, 0, 0.8)',
     lightGrey: '#F4F2F2',
     grey: '#A5B1AA',
     navy: '#07253F',
