@@ -7,9 +7,13 @@ export const GlobalStyle = createGlobalStyle`
     padding:0;
     box-sizing:border-box;
 }
+html{
+    font-size: 62.5%;
+}
+
 body{
     font-family:'Poppins', sans-serif;
-    font-size: 62.5%;
+    font-size: 1.6rem;
 }
 button{
     font-family:'Poppins', sans-serif;

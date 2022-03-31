@@ -2,20 +2,22 @@ import { queries } from 'helpers/mediaQueries';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  align-items: center;
+  display: none;
+
+  @media (min-width: 1600px) {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    grid-column: 4;
+    grid-row: 1/2;
+  }
 `;
 
 export const ImageWrapper = styled.div`
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  @media ${queries.phone} {
-    width: 70px;
-    height: 70px;
-  }
+  height: 70px;
+  width: 70px;
   img {
     object-position: top;
     object-fit: cover;
@@ -29,17 +31,11 @@ export const InfoWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Messagge = styled.p`
+export const Rank = styled.p`
   color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  @media ${queries.phone} {
-    font-size: 14px;
-  }
-  @media ${queries.phone} {
-    font-size: 14px;
-  }
+  font-size: ${({ theme }) => theme.fontSize.s};
 `;
 export const UserName = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  font-size: ${({ theme }) => theme.fontSize.sd};
   font-weight: 500;
 `;
