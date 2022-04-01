@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   }
   @media ${queries.desktop} {
     padding: 0 0.5rem;
-    gap: 1rem 1rem;
+    gap: 1rem 2rem;
     grid-template-columns: 250px 550px 550px 200px;
     grid-template-rows: 200px 275px 275px 1fr;
   }
