@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { queries } from 'helpers/mediaQueries';
 
 interface isOpen {
@@ -68,7 +68,9 @@ export const StyledList = styled.ul`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink).attrs((props) => ({
+  className: ({ isActive }) => (isActive ? ' active' : ''),
+}))`
   position: relative;
   display: flex;
   align-items: center;
@@ -81,8 +83,14 @@ export const StyledLink = styled(Link)`
   }
   svg {
     transform: scale(1.25);
+    fill: rgba(0, 0, 0, 0.7);
     @media ${queries.biggerTablet} {
       transform: scale(1);
+    }
+  }
+  &.active {
+    svg {
+      fill: ${({ theme }) => theme.colors.navy};
     }
   }
 
@@ -99,7 +107,7 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const StyledLogout = styled(Link)`
+export const StyledLogout = styled(NavLink)`
   margin-top: 10px;
   position: relative;
   display: flex;

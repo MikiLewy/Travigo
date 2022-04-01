@@ -1,6 +1,6 @@
 import avatar from 'assets/images/dummyAvatar.jpg';
-import { ImageWrapper, InfoWrapper, Rank, UserName, Wrapper } from './UserInfo.styles';
-const UserInfo = () => {
+import { ImageWrapper, InfoWrapper, Rank, UserName, Wrapper } from './UserProfile.styles';
+const UserProfile = () => {
   return (
     <Wrapper>
       <ImageWrapper>
@@ -14,4 +14,4 @@ const UserInfo = () => {
   );
 };
 
-export default UserInfo;
+export default UserProfile;

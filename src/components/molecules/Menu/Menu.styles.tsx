@@ -23,3 +23,7 @@ export const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const StyledBtn = styled.button`
+  border: none;
+`;
