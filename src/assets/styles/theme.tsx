@@ -19,5 +19,6 @@ export const theme: DefaultTheme = {
     lightGrey: '#F4F2F2',
     grey: '#A5B1AA',
     navy: '#07253F',
+    error: '#f04844',
   },
 };

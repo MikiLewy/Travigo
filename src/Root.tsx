@@ -5,6 +5,7 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import Dashboard from 'views/Dashboard/Dashboard';
 import Profile from 'views/Profile/Profile';
+import News from 'views/News/News';
 const Root = () => {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ const Root = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/news" element={<News />} />
           </Routes>
         </MainTemplate>
       </ThemeProvider>

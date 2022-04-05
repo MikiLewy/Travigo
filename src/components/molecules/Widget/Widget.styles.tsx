@@ -29,12 +29,12 @@ export const Wrapper = styled.div<isNotes>`
   @media ${queries.biggerTablet} {
     grid-column: 2;
     height: 100%;
+    grid-row: ${({ isNotes }) => (isNotes ? '3/4' : '2/3')};
   }
   @media ${queries.desktop} {
     margin-top: 0;
     max-width: 550px;
-    grid-column: 3;
-    grid-row: ${({ isNotes }) => (isNotes ? '3/4' : '2/3')};
+    grid-column: 2;
   }
   @media (min-width: 1600px) {
     width: 500px;
@@ -49,8 +49,6 @@ export const Overlay = styled.div<isNotes>`
   right: 0;
   width: 100%;
   background-color: ${({ isNotes }) => (isNotes ? 'rgba(250, 151, 3, 0.4)' : 'rgba(7, 37, 63, 0.7)')};
-  /* background-color: rgba(3, 140, 62, 0.6); */
-  /* background-color: rgba(250, 151, 3, 0.6); */
 `;
 
 export const ContentWrapper = styled.div<isNotes>`
