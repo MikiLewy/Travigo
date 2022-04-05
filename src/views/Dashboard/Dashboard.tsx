@@ -5,7 +5,7 @@ import DestinationsList from 'components/organisms/DestinationsList/Destinations
 import Expenses from 'components/molecules/Expenses/Expenses';
 import { expensesData } from 'data/Expenses';
 import Headline from 'components/atoms/Headline/Headline';
-import Calendar from 'components/molecules/Calendar/Calendar';
+import { Wrapper } from './Dashboard.styles';
 
 const Dashboard = () => {
   const [data, setData] = useState({
@@ -20,14 +20,14 @@ const Dashboard = () => {
     ],
   });
   return (
-    <>
+    <Wrapper>
       <Headline title="Hello, Jeremy! 👋" content="Welcome back and explore the world." />
       <DestinationsList />
       <Widget isNotes={false} />
       <Widget isNotes />
       <Schedule />
       <Expenses chartData={data} />
-    </>
+    </Wrapper>
   );
 };
 

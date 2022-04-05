@@ -12,15 +12,11 @@ export const Wrapper = styled.div`
   }
   @media ${queries.biggerTablet} {
     grid-column: 2;
-    grid-row: 2/3;
+    grid-row: 1/2;
     flex-direction: row;
     align-items: center;
     gap: 20px;
     margin-bottom: 3rem;
-  }
-  @media ${queries.desktop} {
-    grid-column: 3;
-    grid-row: 1/2;
   }
 `;
 

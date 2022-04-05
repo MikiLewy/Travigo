@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Headline from 'components/atoms/Headline/Headline';
 import UserProfile from 'components/molecules/UserProfile/UserProfile';
-import { Form, InputWrapper, StyledBtn } from './Profile.styles';
-import { Input } from 'components/atoms/Input/Input';
-import { Label } from 'components/atoms/Label/Label';
+import { Form, StyledBtn, Wrapper } from './Profile.styles';
+import FormField from 'components/molecules/FormField/FormField';
 
 interface ProfileProps {}
 
@@ -11,7 +10,7 @@ const Profile: React.FC<ProfileProps> = () => {
   const [inputValues, setInputValues] = useState({
     userName: 'Jeremy Whiteman',
     email: 'test@test.com',
-    password: 'test1234',
+    password: '',
   });
   const handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     setInputValues({
@@ -19,31 +18,22 @@ const Profile: React.FC<ProfileProps> = () => {
       [e.currentTarget.name]: e.currentTarget.value,
     });
   };
+  const handleChangeUserData = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
   return (
-    <>
+    <Wrapper>
       <Headline title="Profile" content="Change your user information" />
       <UserProfile />
       <Form method="Post">
         <h5>Change your user information</h5>
-        <InputWrapper>
-          <Label htmlFor="userName">Name</Label>
-          <Input id="userName" type="text" value={inputValues.userName} name="userName" onChange={handleInputChange} />
-        </InputWrapper>
-        <InputWrapper>
-          <Label htmlFor="email">E-mail</Label>
-          <Input id="email" type="email" value={inputValues.email} name="email" onChange={handleInputChange} />
-        </InputWrapper>
-        <InputWrapper>
-          <Label htmlFor="image">Image</Label>
-          <Input id="image" type="file" name="image" />
-        </InputWrapper>
-        <InputWrapper>
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" value={inputValues.password} name="password" onChange={handleInputChange} />
-        </InputWrapper>
-        <StyledBtn>Save</StyledBtn>
+        <FormField id="userName" type="text" value={inputValues.userName} name="userName" onChange={handleInputChange} label="Name" />
+        <FormField id="email" type="email" value={inputValues.email} name="email" onChange={handleInputChange} label="E-mail" />
+        <FormField id="image" type="file" name="image" label="Image" />
+        <FormField id="password" type="password" value={inputValues.password} name="password" onChange={handleInputChange} label="Password" />
+        <StyledBtn onClick={handleChangeUserData}>Save</StyledBtn>
       </Form>
-    </>
+    </Wrapper>
   );
 };
 

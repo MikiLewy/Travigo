@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 export const StyledViewWrapper = styled(ViewWrapper)`
   display: none;
-  @media ${queries.desktop} {
+  @media ${queries.biggerTablet} {
     display: block;
     height: 100%;
-    grid-column: 2;
+    grid-column: 1/2;
     grid-row: 4;
   }
   @media (min-width: 1600px) {

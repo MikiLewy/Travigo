@@ -2,6 +2,23 @@ import styled from 'styled-components';
 import { Button } from 'components/atoms/Button/Button';
 import { queries } from 'helpers/mediaQueries';
 
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media ${queries.biggerTablet} {
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+    display: grid;
+    grid-template-columns: 500px 500px 1fr;
+    width: 100%;
+    gap: 2rem;
+    margin: 1rem 0 5rem;
+  }
+`;
+
 export const Form = styled.form`
   width: 80%;
   display: flex;
@@ -15,36 +32,12 @@ export const Form = styled.form`
     }
   }
   @media ${queries.biggerTablet} {
-    grid-column: 2;
-    grid-row: 3/4;
+    grid-column: 1;
+    grid-row: 2/4;
     margin: 0;
     h5 {
       font-size: ${({ theme }) => theme.fontSize.s};
     }
-  }
-  @media ${queries.desktop} {
-    grid-column: 2;
-    grid-row: 1/4;
-    margin: 0;
-    h5 {
-      font-size: ${({ theme }) => theme.fontSize.s};
-    }
-  }
-`;
-export const InputWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  @media ${queries.phone} {
-    width: 70%;
-  }
-  @media ${queries.biggerTablet} {
-    width: 40%;
-  }
-  @media ${queries.desktop} {
-    width: 65%;
-    gap: 5px;
   }
 `;
 

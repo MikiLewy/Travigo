@@ -26,4 +26,5 @@ export const ContentWrapper = styled.div`
 
 export const StyledBtn = styled.button`
   border: none;
+  background-color: transparent;
 `;

@@ -4,14 +4,13 @@ import { ViewWrapper } from 'components/templates/ViewWrapper/ViewWrapper';
 
 export const StyledViewWrapper = styled(ViewWrapper)`
   margin-bottom: 7rem;
-  @media ${queries.phone} {
-    width: 100%;
-  }
+  width: 100%;
+
   @media ${queries.biggerTablet} {
     margin-bottom: 0;
   }
-  @media ${queries.desktop} {
-    grid-column: 3;
+  @media ${queries.biggerTablet} {
+    grid-column: 2/3;
     grid-row: 4;
   }
   @media (min-width: 1600px) {
