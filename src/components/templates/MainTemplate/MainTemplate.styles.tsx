@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
   @media ${queries.biggerTablet} {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 250px 1fr 1fr;
     gap: 5rem;
     width: 100%;
   }

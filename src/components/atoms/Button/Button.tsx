@@ -13,6 +13,6 @@ export const Button = styled.button<ButtonProps>`
   color: ${({ theme, isWhite }) => (isWhite ? theme.colors.black : theme.colors.white)};
   cursor: pointer;
   @media ${queries.phone} {
-    padding: 5px 25px;
+    padding: 7px 25px;
   }
 `;
