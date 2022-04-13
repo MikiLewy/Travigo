@@ -17,3 +17,9 @@ export const Wrapper = styled.div`
     gap: 5px;
   }
 `;
+
+export const Textarea = styled.textarea`
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+`;

@@ -12,7 +12,7 @@ const Profile: React.FC<ProfileProps> = () => {
     email: 'test@test.com',
     password: '',
   });
-  const handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setInputValues({
       ...inputValues,
       [e.currentTarget.name]: e.currentTarget.value,

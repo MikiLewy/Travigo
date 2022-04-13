@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
   @media ${queries.biggerTablet} {
     align-items: flex-start;
-    grid-column: 2;
+    grid-column: 2/-1;
     width: 100%;
     gap: 2rem;
     margin: 1rem 0 5rem;
