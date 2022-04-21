@@ -1,19 +1,35 @@
 import { Destinations, InfoWrapper, Description, Wrapper } from './DestinationsList.styles';
 import DestinationsListItem from 'components/molecules/DestinationsListItem/DestinationsListItem';
-import { DestinationModel } from 'interfaces/DestinationModel';
-import { DummyDestinationList } from 'data/Destinations';
 import { Subtitle } from 'components/atoms/Subtitle/Subtitle';
 import { ArrowBtn } from 'components/atoms/ArrowBtn/ArrowBtn';
 import { ViewWrapper } from 'components/templates/ViewWrapper/ViewWrapper';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { Destination } from 'interfaces/Destination';
 
 const DestinationsList = () => {
+  const [destinations, setDestinations] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await axios.get('http://localhost:8080/best-destinations');
+        if (result.status !== 200) {
+          throw new Error('Failed to fetch destinations');
+        }
+        setDestinations(result.data.destinations);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
+
   return (
     <ViewWrapper>
       <Wrapper>
         <InfoWrapper>
           <div>
             <Subtitle>Best Destinations</Subtitle>
-            <Description>{DummyDestinationList.length} Destinations found</Description>
+            <Description>{destinations.length} Destinations found</Description>
           </div>
           <ArrowBtn>
             See all
@@ -21,12 +37,11 @@ const DestinationsList = () => {
               <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
             </svg>
           </ArrowBtn>
-          {/* <Button>See all</Button> */}
         </InfoWrapper>
         <Destinations>
-          {DummyDestinationList.length > 0 ? (
-            DummyDestinationList.map((destination: DestinationModel) => (
-              <DestinationsListItem key={destination.id} destination={destination}></DestinationsListItem>
+          {destinations.length > 0 ? (
+            destinations.map((destination: Destination) => (
+              <DestinationsListItem key={destination._id} destination={destination}></DestinationsListItem>
             ))
           ) : (
             <p>No destinations find try again later</p>

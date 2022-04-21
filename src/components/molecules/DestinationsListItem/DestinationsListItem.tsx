@@ -1,16 +1,16 @@
 import React from 'react';
-import { DestinationModel } from 'interfaces/DestinationModel';
 import { Wrapper } from './DestinationsListItem.styles';
 import PlaceDetail from 'components/atoms/PlaceDetail/PlaceDetail';
+import { Destination } from 'interfaces/Destination';
 
 interface DestinationsListItemProps {
-  destination: DestinationModel;
+  destination: Destination;
 }
 
-const DestinationsListItem: React.FC<DestinationsListItemProps> = ({ destination: { name, region, rating, price, imageUrl } }) => {
+const DestinationsListItem: React.FC<DestinationsListItemProps> = ({ destination: { title, place, rating, price, imageUrl } }) => {
   return (
     <Wrapper>
-      <PlaceDetail isCard={false} name={name} region={region} rating={rating} imageUrl={imageUrl} price={price} />
+      <PlaceDetail isCard={false} title={title} place={place} rating={rating} imageUrl={imageUrl} price={price} />
     </Wrapper>
   );
 };
