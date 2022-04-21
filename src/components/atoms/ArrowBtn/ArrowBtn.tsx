@@ -6,6 +6,8 @@ export const ArrowBtn = styled.button`
   align-items: center;
   border: none;
   background-color: transparent;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.dimmedBlack};
   font-size: ${({ theme }) => theme.fontSize.xxs};
   cursor: pointer;
   svg {

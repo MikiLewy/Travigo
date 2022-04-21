@@ -4,6 +4,8 @@ import { queries } from 'helpers/mediaQueries';
 export const Container = styled.div<{ isCard: boolean }>`
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.dimmedBlack};
   gap: 8px;
   width: 100%;
   border-radius: 15px;

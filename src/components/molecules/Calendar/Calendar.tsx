@@ -4,9 +4,11 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { Wrapper } from './Calendar.styles';
 import { useWindowWidth } from 'hooks/useWindowWidth';
 
-interface CalendarProps {}
+interface CalendarProps {
+  dates: { title: string; date: string }[];
+}
 
-const Calendar: React.FC<CalendarProps> = () => {
+const Calendar: React.FC<CalendarProps> = ({ dates }) => {
   const width = useWindowWidth();
   return (
     <Wrapper>
@@ -17,10 +19,7 @@ const Calendar: React.FC<CalendarProps> = () => {
         eventColor={'#07253F'}
         contentHeight={width > 791 ? 'auto' : 300}
         handleWindowResize={true}
-        events={[
-          { title: 'Trip', date: '2022-03-31' },
-          { title: 'Monteverde Forest', date: '2022-04-02' },
-        ]}
+        events={dates}
       />
     </Wrapper>
   );
