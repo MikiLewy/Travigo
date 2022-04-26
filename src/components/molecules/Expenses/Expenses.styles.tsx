@@ -1,4 +1,4 @@
-import { ViewWrapper } from 'components/templates/ViewWrapper/ViewWrapper';
+import { ViewWrapper } from 'components/organisms/ViewWrapper/ViewWrapper';
 import { queries } from 'helpers/mediaQueries';
 import styled from 'styled-components';
 
@@ -8,9 +8,15 @@ export const StyledViewWrapper = styled(ViewWrapper)`
     display: block;
     height: 100%;
     grid-column: 1/2;
-    grid-row: 4;
+    grid-row: 4/5;
   }
-  @media (min-width: 1600px) {
+  @media ${queries.desktop} {
+    max-width: 540px;
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 3/5;
+  }
+  @media (min-width: 1800px) {
     width: 500px;
   }
 `;

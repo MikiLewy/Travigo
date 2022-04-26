@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { queries } from 'helpers/mediaQueries';
-import { ViewWrapper } from 'components/templates/ViewWrapper/ViewWrapper';
+import { ViewWrapper } from 'components/organisms/ViewWrapper/ViewWrapper';
 
 export const StyledViewWrapper = styled(ViewWrapper)`
   margin-bottom: 7rem;
@@ -11,9 +11,14 @@ export const StyledViewWrapper = styled(ViewWrapper)`
   }
   @media ${queries.biggerTablet} {
     grid-column: 2/3;
-    grid-row: 4;
+    grid-row: 4/5;
   }
-  @media (min-width: 1600px) {
+  @media ${queries.desktop} {
+    max-width: 540px;
+    grid-column: 2/3;
+    grid-row: 3/5;
+  }
+  @media (min-width: 1800px) {
     width: 500px;
   }
 `;

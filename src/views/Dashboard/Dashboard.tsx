@@ -23,8 +23,8 @@ const Dashboard = () => {
     <Wrapper>
       <Headline title="Hello, Jeremy! 👋" content="Welcome back and explore the world." />
       <DestinationsList />
-      <Widget isNotes={false} />
-      <Widget isNotes />
+      <Widget isFavourites={false} />
+      <Widget isFavourites />
       <Schedule />
       <Expenses chartData={data} />
     </Wrapper>

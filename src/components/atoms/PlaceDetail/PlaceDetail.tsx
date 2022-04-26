@@ -1,21 +1,17 @@
 import React from 'react';
-import { Container, ImageWrapper, ContentWrapper, PlaceName, DetailsWrapper, InfoWrapper, Day, Price, PriceWrapper } from './PlaceDetail.styles';
+import { Wrapper, ImageWrapper, ContentWrapper, PlaceName, DetailsWrapper, InfoWrapper } from './PlaceDetail.styles';
 
 interface PlaceDetailProps {
-  isCard: boolean;
-  isSchelude?: boolean;
   title: string;
   imageUrl: string;
   place: string;
-  rating?: string;
-  date?: string;
-  price?: number;
+  date: string;
 }
 
-const PlaceDetail: React.FC<PlaceDetailProps> = ({ isCard, isSchelude, title, place, date, imageUrl, rating, price }) => {
+const PlaceDetail: React.FC<PlaceDetailProps> = ({ title, place, date, imageUrl }) => {
   return (
     <>
-      <Container isCard={isCard}>
+      <Wrapper>
         <ImageWrapper>
           <img src={imageUrl} alt={title} />
         </ImageWrapper>
@@ -29,28 +25,14 @@ const PlaceDetail: React.FC<PlaceDetailProps> = ({ isCard, isSchelude, title, pl
               <p>{place}</p>
             </InfoWrapper>
             <InfoWrapper>
-              {isSchelude ? (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z" />
-                </svg>
-              ) : (
-                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
-                  <path d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
-                </svg>
-              )}
-              <p>{isSchelude ? date : rating}</p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z" />
+              </svg>
+              <p>{date}</p>
             </InfoWrapper>
           </DetailsWrapper>
         </ContentWrapper>
-        {isSchelude ? (
-          ''
-        ) : (
-          <PriceWrapper>
-            <Price>${price}</Price>
-            <Day>/day</Day>
-          </PriceWrapper>
-        )}
-      </Container>
+      </Wrapper>
     </>
   );
 };

@@ -1,6 +1,10 @@
-import { Event } from 'interfaces/Event';
-
-export interface Destination extends Event {
+export interface Destination {
+  _id: string;
+  city: string;
+  continent: string;
+  date: string;
   rating: string;
-  price: number;
+  price: string;
+  description: string;
+  imageUrl: string;
 }

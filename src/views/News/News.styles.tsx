@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ViewWrapper } from 'components/templates/ViewWrapper/ViewWrapper';
+import { ViewWrapper } from 'components/organisms/ViewWrapper/ViewWrapper';
 import { Button } from 'components/atoms/Button/Button';
 import { queries } from 'helpers/mediaQueries';
 
