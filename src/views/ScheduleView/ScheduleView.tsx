@@ -27,6 +27,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { data } from 'interfaces/FormData';
+import { baseURL } from 'helpers/baseUrl';
 
 const ScheduleView: React.FC = () => {
   const { id } = useParams();
@@ -58,10 +59,10 @@ const ScheduleView: React.FC = () => {
     formData.append('place', data.place);
     formData.append('description', data.description);
 
-    let url = 'http://localhost:8080/schedule/create-event';
+    let url = `${baseURL}/schedule/create-event`;
     let method: any = 'POST';
     if (modalState!.isEditing) {
-      url = `http://localhost:8080/schedule/edit-event/${id}`;
+      url = `${baseURL}/schedule/edit-event/${id}`;
       method = 'PUT';
     }
     try {
@@ -86,7 +87,7 @@ const ScheduleView: React.FC = () => {
     try {
       const result = await axios({
         method: 'DELETE',
-        url: `http://localhost:8080/schedule/delete-event/${_id}`,
+        url: `${baseURL}/schedule/delete-event/${_id}`,
       });
       if (result.status !== 200 && result.status !== 200) {
         throw new Error('Failed to delete an event ');
@@ -147,7 +148,7 @@ const ScheduleView: React.FC = () => {
       <Modal isOpen={open} setIsOpen={setOpen}>
         {modalState!.isInfo ? (
           <>
-            <Background url={`http://localhost:8080/images/${event.imageUrl}`}>
+            <Background url={`${baseURL}/images/${event.imageUrl}`}>
               <Overlay></Overlay>
               <Title isWhite>{event.title}</Title>
             </Background>

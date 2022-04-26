@@ -3,9 +3,10 @@ import PlaceDetail from 'components/atoms/PlaceDetail/PlaceDetail';
 import { ContentWrapper, Description, StyledList, StyledViewWrapper, Wrapper } from './Schedule.styles';
 import { Subtitle } from 'components/atoms/Subtitle/Subtitle';
 import { ArrowBtn } from 'components/atoms/ArrowBtn/ArrowBtn';
-// import { Destination } from 'interfaces/Destination';
+import { Event } from 'interfaces/Event';
 import { useEvents } from 'hooks/useEvents';
 import { Link } from 'react-router-dom';
+import { baseURL } from 'helpers/baseUrl';
 
 interface ScheduleProps {}
 
@@ -29,19 +30,17 @@ const Schedule: React.FC<ScheduleProps> = () => {
         </ContentWrapper>
         <StyledList>
           {latestEvents.length > 0 ? (
-            latestEvents.map((event: any) => (
+            latestEvents.map((event: Event) => (
               <PlaceDetail
                 key={event._id}
-                isCard
-                isSchelude
                 title={event.title}
                 place={event.place}
                 date={event.date}
-                imageUrl={`http://localhost:8080/images/${event.imageUrl}`}
+                imageUrl={`${baseURL}/images/${event.imageUrl}`}
               />
             ))
           ) : (
-            <p>no upcoming events</p>
+            <p>No upcoming events</p>
           )}
         </StyledList>
       </Wrapper>

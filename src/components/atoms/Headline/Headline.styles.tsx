@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5px;
   @media ${queries.phone} {
     margin: 5rem 0 3rem;
   }
@@ -25,9 +26,15 @@ export const Wrapper = styled.div`
     }
   }
   p {
+    text-align: center;
+    width: 32ch;
     font-size: ${({ theme }) => theme.fontSize.xs};
     @media ${queries.phone} {
       font-size: ${({ theme }) => theme.fontSize.sd};
+    }
+    @media ${queries.biggerTablet} {
+      text-align: left;
+      width: auto;
     }
   }
 `;

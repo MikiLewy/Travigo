@@ -7,6 +7,7 @@ import Dashboard from 'views/Dashboard/Dashboard';
 import Profile from 'views/Profile/Profile';
 import News from 'views/News/News';
 import ScheduleView from 'views/ScheduleView/ScheduleView';
+import Destinations from 'views/Destinations/Destinations';
 const Root = () => {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ const Root = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/explore" element={<Destinations />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/news" element={<News />} />
             <Route path="/schedule" element={<ScheduleView />} />

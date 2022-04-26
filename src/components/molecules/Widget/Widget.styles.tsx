@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 import hiking from 'assets/images/hiking.jpg';
-import notes from 'assets/images/notes.jpg';
+import trip from 'assets/images/trip.jpg';
 import { queries } from 'helpers/mediaQueries';
 import { Button } from 'components/atoms/Button/Button';
 
-interface isNotes {
-  isNotes: boolean;
+interface isFavourites {
+  isFavourites: boolean;
 }
 
-export const Wrapper = styled.div<isNotes>`
+export const Wrapper = styled.div<isFavourites>`
   width: 100%;
   border-radius: 20px;
-  background-image: ${({ isNotes }) => (isNotes ? `url(${notes})` : `url(${hiking})`)};
+  background-image: ${({ isFavourites }) => (isFavourites ? `url(${trip})` : `url(${hiking})`)};
   background-size: cover;
-  background-position: ${({ isNotes }) => (isNotes ? `bottom` : `left`)};
+  background-position: ${({ isFavourites }) => (isFavourites ? `center` : `left`)};
   padding: 1.5rem;
   margin-top: 1rem;
   position: relative;
@@ -21,37 +21,41 @@ export const Wrapper = styled.div<isNotes>`
   color: white;
   max-width: 550px;
   @media ${queries.phone} {
-    background-position: ${({ isNotes }) => (isNotes ? `center` : `left`)};
+    background-position: ${({ isFavourites }) => (isFavourites ? `center` : `left`)};
   }
   @media ${queries.tablet} {
     max-width: 650px;
   }
   @media ${queries.biggerTablet} {
-    grid-column: 2;
+    display: none;
+    grid-column: ${({ isFavourites }) => (isFavourites ? '1/2' : '2/3')};
     height: 100%;
-    grid-row: ${({ isNotes }) => (isNotes ? '3/4' : '2/3')};
+    grid-row: ${({ isFavourites }) => (isFavourites ? '3/4' : '3/4')};
+    max-width: 400px;
   }
   @media ${queries.desktop} {
     margin-top: 0;
     max-width: 550px;
-    grid-column: 2;
   }
-  @media (min-width: 1600px) {
-    width: 500px;
+  @media (min-width: 1800px) {
+    display: block;
+    grid-column: 3;
+    max-width: 520px;
+    grid-row: ${({ isFavourites }) => (isFavourites ? '3/4' : '4/5')};
   }
 `;
 
-export const Overlay = styled.div<isNotes>`
+export const Overlay = styled.div<isFavourites>`
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   width: 100%;
-  background-color: ${({ isNotes }) => (isNotes ? 'rgba(250, 151, 3, 0.4)' : 'rgba(7, 37, 63, 0.7)')};
+  background-color: ${({ isFavourites }) => (isFavourites ? 'rgba(0, 0, 0, 0.7)' : 'rgba(7, 37, 63, 0.7)')};
 `;
 
-export const ContentWrapper = styled.div<isNotes>`
+export const ContentWrapper = styled.div<isFavourites>`
   position: relative;
   z-index: 2;
   display: flex;
@@ -62,10 +66,10 @@ export const ContentWrapper = styled.div<isNotes>`
   }
 `;
 
-export const TextWrapper = styled.div<isNotes>`
+export const TextWrapper = styled.div<isFavourites>`
   display: flex;
   flex-direction: column;
-  width: ${(isNotes) => (isNotes ? ' 50%' : ' 60%')};
+  width: ${(isFavourites) => (isFavourites ? ' 50%' : ' 60%')};
   gap: 5px;
   p:nth-of-type(2) {
     font-size: 10px;
@@ -75,11 +79,11 @@ export const TextWrapper = styled.div<isNotes>`
   }
 `;
 
-export const StyledButton = styled(Button)<isNotes>`
+export const StyledButton = styled(Button)<isFavourites>`
   margin-top: 10px;
   width: 100px;
-  background-color: ${({ isNotes, theme }) => (isNotes ? 'rgb(250, 151, 3)' : theme.colors.navy)};
-  border: ${({ isNotes, theme }) => (isNotes ? '1px solid rgb(250, 151, 3)' : `1px solid ${theme.colors.navy}`)};
+  background-color: ${({ isFavourites, theme }) => (isFavourites ? 'rgb(234, 25, 6)' : theme.colors.navy)};
+  border: ${({ isFavourites, theme }) => (isFavourites ? '1px solid rgb(234, 25, 6)' : `1px solid ${theme.colors.navy}`)};
   @media ${queries.laptop} {
     width: 120px;
     font-size: ${({ theme }) => theme.fontSize.xxs};

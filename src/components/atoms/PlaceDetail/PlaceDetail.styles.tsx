@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { queries } from 'helpers/mediaQueries';
 
-export const Container = styled.div<{ isCard: boolean }>`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -69,25 +69,5 @@ export const InfoWrapper = styled.div`
     @media ${queries.phone} {
       font-size: ${({ theme }) => theme.fontSize.xs};
     }
-  }
-`;
-
-export const PriceWrapper = styled.div`
-  display: flex;
-  align-items: flex-end;
-`;
-
-export const Price = styled.p`
-  font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSize.xs};
-  @media ${queries.phone} {
-    font-size: ${({ theme }) => theme.fontSize.s};
-  }
-`;
-
-export const Day = styled.p`
-  font-size: 10px;
-  @media ${queries.phone} {
-    font-size: ${({ theme }) => theme.fontSize.xs};
   }
 `;
