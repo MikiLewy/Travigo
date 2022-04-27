@@ -67,6 +67,7 @@ export const DestinationWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
+  text-decoration: none;
   cursor: pointer;
   &:hover {
     ${Background} {

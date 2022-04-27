@@ -4,7 +4,7 @@ export interface Destination {
   continent: string;
   date: string;
   rating: string;
-  price: string;
+  price: number;
   description: string;
   imageUrl: string;
 }

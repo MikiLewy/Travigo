@@ -37,7 +37,7 @@ const DestinationsList = () => {
         <DestinationsWrapper>
           {topDestinations.length > 0 ? (
             topDestinations.map((destination: Destination) => (
-              <DestinationsListItem key={destination._id}>
+              <DestinationsListItem key={destination._id} as={Link} to={`/explore/${destination._id}`}>
                 <Overlay></Overlay>
                 <Background>
                   <img src={`${baseURL}/images/destinations/${destination.imageUrl}`} alt={destination.city} />

@@ -49,6 +49,7 @@ export const DestinationsWrapper = styled.ul`
   gap: 10px;
   list-style: none;
   margin-bottom: 2rem;
+
   @media ${queries.biggerTablet} {
     flex-direction: row;
   }
@@ -83,6 +84,7 @@ export const DestinationsListItem = styled.li`
   min-height: 150px;
   width: 100%;
   padding: 2rem;
+  text-decoration: none;
   cursor: pointer;
   @media ${queries.biggerTablet} {
     min-height: 300px;

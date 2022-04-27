@@ -5,6 +5,7 @@ import { baseURL } from 'helpers/baseUrl';
 import { useDestinations } from 'hooks/useDestinations';
 import Loader from 'components/atoms/Loader/Loader';
 import ErrorMessage from 'components/atoms/ErrorMessage/ErrorMessage';
+import { Link } from 'react-router-dom';
 
 interface DestinationsProps {}
 
@@ -16,7 +17,7 @@ const Destinations: React.FC<DestinationsProps> = () => {
       <ContentWrapper>
         {destinations.length > 0 ? (
           destinations.map((destination: Destination) => (
-            <DestinationWrapper key={destination._id}>
+            <DestinationWrapper key={destination._id} as={Link} to={`${destination._id}`}>
               <Overlay></Overlay>
               <Background>
                 <img src={`${baseURL}/images/destinations/${destination.imageUrl}`} alt={destination.city} />
