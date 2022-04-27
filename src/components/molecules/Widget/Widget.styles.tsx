@@ -84,6 +84,8 @@ export const StyledButton = styled(Button)<isFavourites>`
   width: 100px;
   background-color: ${({ isFavourites, theme }) => (isFavourites ? 'rgb(234, 25, 6)' : theme.colors.navy)};
   border: ${({ isFavourites, theme }) => (isFavourites ? '1px solid rgb(234, 25, 6)' : `1px solid ${theme.colors.navy}`)};
+  text-decoration: none;
+  text-align: center;
   @media ${queries.laptop} {
     width: 120px;
     font-size: ${({ theme }) => theme.fontSize.xxs};

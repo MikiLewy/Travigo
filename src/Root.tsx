@@ -8,22 +8,28 @@ import Profile from 'views/Profile/Profile';
 import News from 'views/News/News';
 import ScheduleView from 'views/ScheduleView/ScheduleView';
 import Destinations from 'views/Destinations/Destinations';
+import DestinationDetail from 'views/DestinationDetail/DestinationDetail';
+import TemplateWithoutSideMenu from 'components/templates/TemplateWithoutSideMenu/TemplateWithoutSideMenu';
 const Root = () => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <MainTemplate>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
+        <Routes>
+          <Route path="/" element={<MainTemplate />}>
+            <Route index element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/explore" element={<Destinations />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/news" element={<News />} />
-            <Route path="/schedule" element={<ScheduleView />} />
-            <Route path="/schedule/:id" element={<ScheduleView />} />
-          </Routes>
-        </MainTemplate>
+            <Route path="/schedule" element={<ScheduleView />}>
+              <Route path=":id" element={<ScheduleView />} />
+            </Route>
+          </Route>
+          <Route path="/explore/:id" element={<TemplateWithoutSideMenu />}>
+            <Route index element={<DestinationDetail />} />
+          </Route>
+        </Routes>
       </ThemeProvider>
     </BrowserRouter>
   );
