@@ -14,7 +14,7 @@ export const Wrapper = styled.nav<isOpen>`
   width: 100%;
   background-color: #fff;
   z-index: 4;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 4rem;
   overflow-y: scroll;
   @media ${queries.biggerTablet} {
     position: fixed;
@@ -75,18 +75,15 @@ export const StyledLink = styled(NavLink).attrs((props) => ({
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 15px;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
   p {
     font-size: ${({ theme }) => theme.fontSize.s};
   }
   svg {
-    transform: scale(1.25);
+    transform: scale(1);
     fill: rgba(0, 0, 0, 0.7);
-    @media ${queries.biggerTablet} {
-      transform: scale(1);
-    }
   }
   &.active {
     svg {
@@ -105,7 +102,7 @@ export const StyledLink = styled(NavLink).attrs((props) => ({
 `;
 
 export const StyledLogout = styled(NavLink)`
-  margin-top: 10px;
+  margin-top: 5px;
   position: relative;
   display: flex;
   align-items: center;
@@ -119,10 +116,7 @@ export const StyledLogout = styled(NavLink)`
     color: red;
   }
   svg {
-    transform: scale(1.25);
+    transform: scale(1);
     fill: red;
-    @media ${queries.biggerTablet} {
-      transform: scale(1);
-    }
   }
 `;

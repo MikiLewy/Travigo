@@ -2,6 +2,8 @@ import React from 'react';
 import { BackWrapper, Wrapper, StyledLink, StyledList, StyledLogout } from './Navigation.styles';
 import logo from 'assets/images/logo.svg';
 import { useWindowWidth } from 'hooks/useWindowWidth';
+import { useDispatch } from 'react-redux';
+import { logout } from 'features/auth/authSlice';
 
 interface NavigationProps {
   isOpen: boolean;
@@ -10,6 +12,7 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ isOpen, setIsOpen }) => {
   const width = useWindowWidth();
+  const dispatch = useDispatch();
   return (
     <Wrapper isOpen={isOpen}>
       <BackWrapper onClick={() => setIsOpen(!isOpen)}>
@@ -97,7 +100,7 @@ const Navigation: React.FC<NavigationProps> = ({ isOpen, setIsOpen }) => {
           <p>Settings</p>
         </StyledLink>
 
-        <StyledLogout to="/logout">
+        <StyledLogout to="/login" onClick={() => dispatch(logout())}>
           <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
             <path d="M16 2v7h-2v-5h-12v16h12v-5h2v7h-16v-20h16zm2 9v-4l6 5-6 5v-4h-10v-2h10z" />
           </svg>
