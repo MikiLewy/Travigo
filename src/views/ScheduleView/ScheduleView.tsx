@@ -28,9 +28,12 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { data } from 'interfaces/FormData';
 import { baseURL } from 'helpers/baseUrl';
+import { useSelector } from 'react-redux';
+import { State } from 'interfaces/State';
 
 const ScheduleView: React.FC = () => {
   const { id } = useParams();
+  const { token } = useSelector((state: State) => state.auth);
   const navigate = useNavigate();
   const {
     register,
@@ -68,6 +71,9 @@ const ScheduleView: React.FC = () => {
     try {
       const result = await axios({
         method: method,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         url: url,
         data: formData,
       });
@@ -88,6 +94,9 @@ const ScheduleView: React.FC = () => {
       const result = await axios({
         method: 'DELETE',
         url: `${baseURL}/schedule/delete-event/${_id}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
       if (result.status !== 200 && result.status !== 200) {
         throw new Error('Failed to delete an event ');

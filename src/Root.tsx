@@ -1,38 +1,40 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'assets/styles/theme';
-import { GlobalStyle } from 'assets/styles/GlobalStyle';
-import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
-import Dashboard from 'views/Dashboard/Dashboard';
-import Profile from 'views/Profile/Profile';
-import News from 'views/News/News';
-import ScheduleView from 'views/ScheduleView/ScheduleView';
-import Destinations from 'views/Destinations/Destinations';
-import DestinationDetail from 'views/DestinationDetail/DestinationDetail';
-import TemplateWithoutSideMenu from 'components/templates/TemplateWithoutSideMenu/TemplateWithoutSideMenu';
+import AuthenticatedApp from 'views/AuthenticatedApp';
+import UnauthenticatedApp from 'views/UnauthenticatedApp';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from 'features/auth/authSlice';
+import { useNavigate } from 'react-router';
+import { State } from 'interfaces/State';
+
 const Root = () => {
-  return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Routes>
-          <Route path="/" element={<MainTemplate />}>
-            <Route index element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/explore" element={<Destinations />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/schedule" element={<ScheduleView />}>
-              <Route path=":id" element={<ScheduleView />} />
-            </Route>
-          </Route>
-          <Route path="/explore/:id" element={<TemplateWithoutSideMenu />}>
-            <Route index element={<DestinationDetail />} />
-          </Route>
-        </Routes>
-      </ThemeProvider>
-    </BrowserRouter>
-  );
+  const { isAuth } = useSelector((store: State) => store.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const autoLogoutHandler = (miliseconds: number) => {
+    setTimeout(() => {
+      dispatch(logout());
+      navigate('/login');
+    }, miliseconds);
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const expiryDate = localStorage.getItem('expiryDate');
+    if (!token || !expiryDate) {
+      navigate('/login');
+      return;
+    }
+    if (new Date(expiryDate) <= new Date()) {
+      dispatch(logout());
+      return;
+    }
+    const remainingMilliseconds = new Date(expiryDate).getTime() - new Date().getTime();
+    autoLogoutHandler(remainingMilliseconds);
+    dispatch(login());
+  }, []);
+
+  return <>{isAuth ? <AuthenticatedApp /> : <UnauthenticatedApp autoLogoutHandler={autoLogoutHandler} />}</>;
 };
 
 export default Root;

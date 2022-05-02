@@ -1,23 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ContentWrapper, Description, Overlay, TextWrapper, Title, Wrapper, StyledButton } from './Widget.styles';
+import { ContentWrapper, Description, Overlay, TextWrapper, Title, Wrapper, FavoritesBtn, ChallengesBtn } from './Widget.styles';
 
 interface ChallengesProps {
-  isFavourites: boolean;
+  isFavorites: boolean;
 }
 
-const Widget: React.FC<ChallengesProps> = ({ isFavourites }) => {
+const Widget: React.FC<ChallengesProps> = ({ isFavorites }) => {
   return (
-    <Wrapper isFavourites={isFavourites}>
-      <Overlay isFavourites={isFavourites}></Overlay>
-      <ContentWrapper isFavourites={isFavourites}>
-        <TextWrapper isFavourites={isFavourites}>
-          <Title>{isFavourites ? 'Favourites' : 'Challenges'}</Title>
-          <Description>{isFavourites ? 'See your dreamed places around the world' : 'Complete challenges to receive amazing rewards'}</Description>
-          <Description>{isFavourites ? '' : '0 of 244 challenges completed'}</Description>
-          <StyledButton isFavourites={isFavourites} as={Link} to={isFavourites ? `/favourites` : `/challenges`}>
-            {isFavourites ? 'Go!' : ' See all'}
-          </StyledButton>
+    <Wrapper isFavorites={isFavorites}>
+      <Overlay isFavorites={isFavorites}></Overlay>
+      <ContentWrapper isFavorites={isFavorites}>
+        <TextWrapper isFavorites={isFavorites}>
+          <Title>{isFavorites ? 'Favourites' : 'Challenges'}</Title>
+          <Description>{isFavorites ? 'See your dreamed places around the world' : 'Complete challenges to receive amazing rewards'}</Description>
+          <Description>{isFavorites ? '' : '0 of 244 challenges completed'}</Description>
+          {isFavorites ? (
+            <FavoritesBtn as={Link} to={`/favourites`}>
+              Go!
+            </FavoritesBtn>
+          ) : (
+            <ChallengesBtn as={Link} to={`/challenges`}>
+              See all
+            </ChallengesBtn>
+          )}
         </TextWrapper>
       </ContentWrapper>
     </Wrapper>

@@ -6,8 +6,11 @@ export const Wrapper = styled.div`
   padding: 20px;
   border: 1px solid ${({ theme }) => theme.colors.error};
   border-radius: 15px;
-  max-width: 350px;
+  max-width: 300px;
   margin: 2rem auto;
+  @media ${queries.phone} {
+    max-width: 350px;
+  }
   @media ${queries.biggerTablet} {
     margin: 5rem 0;
   }
