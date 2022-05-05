@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Headline from 'components/atoms/Headline/Headline';
 import UserProfile from 'components/molecules/UserProfile/UserProfile';
-import { Form, StyledBtn, Wrapper } from './Profile.styles';
+import { Form, StyledBtn, Wrapper } from './Settings.styles';
 import FormField from 'components/molecules/FormField/FormField';
 
-interface ProfileProps {}
+interface SettingsProps {}
 
-const Profile: React.FC<ProfileProps> = () => {
+const Settings: React.FC<SettingsProps> = () => {
   const [inputValues, setInputValues] = useState({
     userName: 'Jeremy Whiteman',
     email: 'test@test.com',
@@ -23,7 +23,7 @@ const Profile: React.FC<ProfileProps> = () => {
   };
   return (
     <Wrapper>
-      <Headline title="Profile" content="Change your user information" />
+      <Headline title="Settings" content="Change your existing settings " />
       <UserProfile />
       <Form method="Post">
         <h5>Change your user information</h5>
@@ -37,4 +37,4 @@ const Profile: React.FC<ProfileProps> = () => {
   );
 };
 
-export default Profile;
+export default Settings;

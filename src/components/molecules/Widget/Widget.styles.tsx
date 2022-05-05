@@ -30,6 +30,7 @@ export const Wrapper = styled.div<isFavorites>`
     display: none;
   }
   @media (min-width: 1800px) {
+    height: 100%;
     display: block;
     grid-column: 3;
     max-width: 520px;

@@ -16,7 +16,7 @@ const Widget: React.FC<ChallengesProps> = ({ isFavorites }) => {
           <Description>{isFavorites ? 'See your dreamed places around the world' : 'Complete challenges to receive amazing rewards'}</Description>
           <Description>{isFavorites ? '' : '0 of 244 challenges completed'}</Description>
           {isFavorites ? (
-            <FavoritesBtn as={Link} to={`/favourites`}>
+            <FavoritesBtn as={Link} to={`/favorites`}>
               Go!
             </FavoritesBtn>
           ) : (
