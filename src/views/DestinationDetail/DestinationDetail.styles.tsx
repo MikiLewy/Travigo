@@ -92,7 +92,7 @@ export const ReturnWrapper = styled.div`
   }
 `;
 
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<{ isAdded: boolean }>`
   position: absolute;
   top: 20px;
   right: 25px;
@@ -111,8 +111,9 @@ export const IconWrapper = styled.div`
     right: 100px;
   }
   svg {
-    fill: ${({ theme }) => theme.colors.error};
+    fill: ${({ theme, isAdded }) => (isAdded ? theme.colors.error : 'grey')};
     transform: scale(0.9);
+    transition: fill 0.3s ease-in-out;
     @media ${queries.tablet} {
       transform: scale(1.25);
     }
@@ -209,5 +210,14 @@ export const StyledButton = styled(Button)`
   }
   @media ${queries.desktop} {
     padding: 1rem 3rem;
+  }
+`;
+
+export const Message = styled.p`
+  margin: 2rem 0;
+  color: ${({ theme }) => theme.colors.success};
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  @media ${queries.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.sd};
   }
 `;

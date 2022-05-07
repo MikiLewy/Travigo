@@ -12,7 +12,7 @@ const Widget: React.FC<ChallengesProps> = ({ isFavorites }) => {
       <Overlay isFavorites={isFavorites}></Overlay>
       <ContentWrapper isFavorites={isFavorites}>
         <TextWrapper isFavorites={isFavorites}>
-          <Title>{isFavorites ? 'Favourites' : 'Challenges'}</Title>
+          <Title>{isFavorites ? 'Favorites' : 'Challenges'}</Title>
           <Description>{isFavorites ? 'See your dreamed places around the world' : 'Complete challenges to receive amazing rewards'}</Description>
           <Description>{isFavorites ? '' : '0 of 244 challenges completed'}</Description>
           {isFavorites ? (

@@ -50,6 +50,7 @@ export const FavoriteWrapper = styled.div`
   }
 
   h3 {
+    width: 25%;
     font-size: ${({ theme }) => theme.fontSize.xs};
     @media ${queries.phone} {
       font-size: ${({ theme }) => theme.fontSize.s};
@@ -59,6 +60,8 @@ export const FavoriteWrapper = styled.div`
     }
   }
   p {
+    text-align: center;
+    width: 25%;
     font-size: ${({ theme }) => theme.fontSize.xxs};
     @media ${queries.phone} {
       font-size: ${({ theme }) => theme.fontSize.xs};
@@ -68,6 +71,7 @@ export const FavoriteWrapper = styled.div`
     }
   }
   button {
+    width: 25%;
     cursor: pointer;
     background-color: transparent;
     border: none;
