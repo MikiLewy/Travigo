@@ -20,5 +20,6 @@ export const theme: DefaultTheme = {
     grey: '#A5B1AA',
     navy: '#07253F',
     error: '#f04844',
+    success: '#13901f',
   },
 };
