@@ -3,12 +3,15 @@ import Headline from 'components/atoms/Headline/Headline';
 import UserProfile from 'components/molecules/UserProfile/UserProfile';
 import { Form, StyledBtn, Wrapper } from './Settings.styles';
 import FormField from 'components/molecules/FormField/FormField';
+import { State } from 'interfaces/State';
+import { useSelector } from 'react-redux';
 
 interface SettingsProps {}
 
 const Settings: React.FC<SettingsProps> = () => {
+  const { userName } = useSelector((state: State) => state.auth);
   const [inputValues, setInputValues] = useState({
-    userName: 'Jeremy Whiteman',
+    userName: userName,
     email: 'test@test.com',
     password: '',
   });

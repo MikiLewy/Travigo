@@ -45,6 +45,7 @@ const Login: React.FC<LoginProps> = ({ autoLogoutHandler }) => {
       const expiryDate = new Date(new Date().getTime() + remainingMiliseconds);
       localStorage.setItem('token', result.data.token);
       localStorage.setItem('userId', result.data.userId);
+      localStorage.setItem('userName', result.data.userName);
       localStorage.setItem('expiryDate', expiryDate.toISOString());
       dispatch(login());
       autoLogoutHandler(remainingMiliseconds);

@@ -4,26 +4,18 @@ import { Subtitle } from 'components/atoms/Subtitle/Subtitle';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { ArrowBtn } from 'components/atoms/ArrowBtn/ArrowBtn';
+import { useExpenses } from 'hooks/useExpenses';
 ChartJS.register(...registerables);
 
-interface ExpensesProps {
-  chartData: {
-    labels: string[];
-    datasets: {
-      label: string;
-      data: number[];
-    }[];
-  };
-}
-
-const Expenses: React.FC<ExpensesProps> = ({ chartData }) => {
+const Expenses: React.FC = () => {
+  const { lineChartData } = useExpenses();
   return (
     <StyledViewWrapper>
       <Wrapper>
         <ContentWrapper>
           <div>
             <Subtitle>Expenses</Subtitle>
-            <p>See your latest expenses</p>
+            <p>See your recent expenses</p>
           </div>
           <ArrowBtn>
             See all
@@ -35,7 +27,7 @@ const Expenses: React.FC<ExpensesProps> = ({ chartData }) => {
         <ChartWrapper>
           <Line
             style={{ width: '500px', height: '300px' }}
-            data={chartData}
+            data={lineChartData}
             options={{
               responsive: true,
               scales: {

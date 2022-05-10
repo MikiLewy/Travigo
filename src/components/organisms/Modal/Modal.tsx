@@ -1,17 +1,19 @@
 import React from 'react';
 import { Wrapper, Overlay } from './Modal.styles';
+import { useDispatch } from 'react-redux';
+import { close } from 'features/modal/modalSlice';
 interface ModalProps {
   isOpen: boolean;
-  setIsOpen: (e: boolean) => void;
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, setIsOpen, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, children }) => {
+  const dispatch = useDispatch();
   return (
     <>
       {isOpen ? (
         <>
-          <Overlay onClick={() => setIsOpen(false)}></Overlay>
+          <Overlay onClick={() => dispatch(close())}></Overlay>
           <Wrapper>{children}</Wrapper>
         </>
       ) : (
