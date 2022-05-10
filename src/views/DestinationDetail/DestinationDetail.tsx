@@ -6,6 +6,7 @@ import {
   IconWrapper,
   InfoWrapper,
   Message,
+  ModalContent,
   Overlay,
   ReturnWrapper,
   StyledButton,
@@ -16,15 +17,31 @@ import Loader from 'components/atoms/Loader/Loader';
 import { useNavigate } from 'react-router-dom';
 import { useDestinations } from 'hooks/useDestinations';
 import { useFavorites } from 'hooks/useFavorites';
+import { useExpenses } from 'hooks/useExpenses';
+import { useSelector } from 'react-redux';
+import { State } from 'interfaces/State';
+import Modal from 'components/organisms/Modal/Modal';
 
 interface DestinationDetailProps {}
 
 const DestinationDetail: React.FC<DestinationDetailProps> = () => {
+  const { isOpen } = useSelector((state: State) => state.modal);
   const { destination, error } = useDestinations();
   const { addToFavoriteHandler, isAdded, err } = useFavorites();
+  const { buyTicketHandler, expensesError } = useExpenses();
   const navigate = useNavigate();
   return (
     <>
+      {expensesError ? (
+        <Modal isOpen={isOpen}>
+          <ModalContent>
+            <ErrorMessage message={expensesError} />
+          </ModalContent>
+        </Modal>
+      ) : (
+        ''
+      )}
+
       <Wrapper>
         {error ? (
           <ErrorMessage message={error} />
@@ -80,7 +97,7 @@ const DestinationDetail: React.FC<DestinationDetailProps> = () => {
                 <h4>Description</h4>
                 <p>{destination.description}</p>
               </DescriptionWrapper>
-              <StyledButton>Buy ticket</StyledButton>
+              <StyledButton onClick={buyTicketHandler}>Buy ticket</StyledButton>
             </ContentWrapper>
           </>
         ) : (

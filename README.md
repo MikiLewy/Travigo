@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# User for testing purposes
+
+email:'test@test.com'
+password:'test1234'
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

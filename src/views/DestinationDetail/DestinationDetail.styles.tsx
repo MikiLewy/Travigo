@@ -131,7 +131,7 @@ export const ContentWrapper = styled.div`
   width: 90%;
   max-width: 1200px;
   @media ${queries.laptop} {
-    margin: 3rem auto 0;
+    margin: 3rem auto 3rem;
   }
 `;
 
@@ -220,4 +220,16 @@ export const Message = styled.p`
   @media ${queries.tablet} {
     font-size: ${({ theme }) => theme.fontSize.sd};
   }
+`;
+
+export const ModalContent = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

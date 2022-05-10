@@ -69,6 +69,7 @@ export const UserName = styled.p`
   color: ${({ theme }) => theme.colors.dimmedBlack};
   font-size: ${({ theme }) => theme.fontSize.sd};
   font-weight: 600;
+  text-transform: capitalize;
   @media ${queries.tablet} {
     font-size: ${({ theme }) => theme.fontSize.m};
   }
