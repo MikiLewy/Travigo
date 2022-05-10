@@ -1,7 +1,7 @@
 export interface Destination {
   _id: string;
   city: string;
-  continent: string;
+  country: string;
   date: string;
   rating: string;
   price: number;

@@ -1,4 +1,4 @@
-export interface FavoritesData {
+export interface TicketsData {
   _id: string;
   destination: {
     _id: string;
