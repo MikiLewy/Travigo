@@ -143,8 +143,14 @@ export const InfoWrapper = styled.div`
 `;
 export const CategoryWrapper = styled.div`
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+  @media ${queries.phone} {
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+  }
   @media ${queries.laptop} {
     margin-bottom: 1rem;
   }

@@ -69,8 +69,8 @@ const DestinationDetail: React.FC<DestinationDetailProps> = () => {
               <InfoWrapper>
                 <div>
                   <CategoryWrapper>
-                    <h4>Continent</h4>
-                    <p>{destination.continent}</p>
+                    <h4>Country</h4>
+                    <p>{destination.country}</p>
                   </CategoryWrapper>
                   <CategoryWrapper>
                     <h4>Date</h4>
